@@ -14,6 +14,12 @@
 		E416E9212B4F7768008429D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E416E9202B4F7768008429D5 /* Assets.xcassets */; };
 		E416E9242B4F7768008429D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E416E9222B4F7768008429D5 /* LaunchScreen.storyboard */; };
 		E416E9302B4F7C31008429D5 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E92F2B4F7C31008429D5 /* LocationManager.swift */; };
+		E416E9332B4FA31D008429D5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E9322B4FA31D008429D5 /* Constants.swift */; };
+		E416E9352B4FA40B008429D5 /* HTTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E9342B4FA40B008429D5 /* HTTPModel.swift */; };
+		E416E9382B4FA429008429D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E9372B4FA429008429D5 /* NetworkService.swift */; };
+		E416E93C2B4FA6C8008429D5 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */; };
+		E416E93F2B4FBD07008429D5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E416E93E2B4FBD07008429D5 /* SDWebImage */; };
+		E416E9412B4FBD07008429D5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E416E9402B4FBD07008429D5 /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,10 @@
 		E416E9232B4F7768008429D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E416E9252B4F7768008429D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E416E92F2B4F7C31008429D5 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		E416E9322B4FA31D008429D5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E416E9342B4FA40B008429D5 /* HTTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPModel.swift; sourceTree = "<group>"; };
+		E416E9372B4FA429008429D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E416E9412B4FBD07008429D5 /* SDWebImageMapKit in Frameworks */,
+				E416E93F2B4FBD07008429D5 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +87,7 @@
 		E416E92B2B4F77E7008429D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,9 +110,20 @@
 		E416E92E2B4F781B008429D5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				E416E9312B4FA314008429D5 /* NetworkService */,
 				E416E92F2B4F7C31008429D5 /* LocationManager.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		E416E9312B4FA314008429D5 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E416E9322B4FA31D008429D5 /* Constants.swift */,
+				E416E9342B4FA40B008429D5 /* HTTPModel.swift */,
+				E416E9372B4FA429008429D5 /* NetworkService.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +142,10 @@
 			dependencies = (
 			);
 			name = Task;
+			packageProductDependencies = (
+				E416E93E2B4FBD07008429D5 /* SDWebImage */,
+				E416E9402B4FBD07008429D5 /* SDWebImageMapKit */,
+			);
 			productName = Task;
 			productReference = E416E9142B4F7767008429D5 /* Task.app */;
 			productType = "com.apple.product-type.application";
@@ -146,6 +174,9 @@
 				Base,
 			);
 			mainGroup = E416E90B2B4F7767008429D5;
+			packageReferences = (
+				E416E93D2B4FBD07008429D5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = E416E9152B4F7767008429D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,10 +204,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E416E93C2B4FA6C8008429D5 /* CurrentWeatherModel.swift in Sources */,
+				E416E9332B4FA31D008429D5 /* Constants.swift in Sources */,
 				E416E9302B4F7C31008429D5 /* LocationManager.swift in Sources */,
 				E416E91C2B4F7767008429D5 /* CurrentLocationWeatherVC.swift in Sources */,
+				E416E9352B4FA40B008429D5 /* HTTPModel.swift in Sources */,
 				E416E9182B4F7767008429D5 /* AppDelegate.swift in Sources */,
 				E416E91A2B4F7767008429D5 /* SceneDelegate.swift in Sources */,
+				E416E9382B4FA429008429D5 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +434,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E416E93D2B4FBD07008429D5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E416E93E2B4FBD07008429D5 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E416E93D2B4FBD07008429D5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		E416E9402B4FBD07008429D5 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E416E93D2B4FBD07008429D5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E416E90C2B4F7767008429D5 /* Project object */;
 }
