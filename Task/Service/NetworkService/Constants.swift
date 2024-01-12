@@ -13,9 +13,14 @@ struct Constants{
     static let API_KEY_QUERTY = "&appid=\(Constants.API_KEY)"
    
     
-
+   //api.openweathermap.org/data/2.5/forecast?q={city name},{state code},{country code}&appid={API key}
     
     //api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid={API key}
+    
+    
+    //api.openweathermap.org/data/2.5/forecast/daily?q={city name},{country code}&cnt={cnt}&appid={API key}
+    
+    
     static let FORE_CAST_QUERY = "forecast?"
 
     

@@ -23,6 +23,8 @@
 		E4905EA12B4FECB700CA4A9B /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */; };
 		E4905EA22B4FECB700CA4A9B /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */; };
 		E4905EA42B4FFB9900CA4A9B /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */; };
+		E4E6CB5D2B50F9DF009DC700 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */; };
+		E4E6CB5F2B50FBC7009DC700 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
 		E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				E416E91B2B4F7767008429D5 /* CurrentLocationWeatherVC.swift */,
+				E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */,
 				E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */,
+				E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,7 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E6CB5F2B50FBC7009DC700 /* SearchVC.swift in Sources */,
 				E416E93C2B4FA6C8008429D5 /* CurrentWeatherModel.swift in Sources */,
+				E4E6CB5D2B50F9DF009DC700 /* CustomTextField.swift in Sources */,
 				E416E9332B4FA31D008429D5 /* Constants.swift in Sources */,
 				E416E9302B4F7C31008429D5 /* LocationManager.swift in Sources */,
 				E416E91C2B4F7767008429D5 /* CurrentLocationWeatherVC.swift in Sources */,

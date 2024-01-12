@@ -172,6 +172,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nGg-xf-ELb">
+                        <barButtonItem key="leftBarButtonItem" image="magnifyingglass" catalog="system" id="sAj-yg-Gy5">
+                            <connections>
+                                <action selector="searchBtnPressed:" destination="BYZ-38-t0r" id="cZY-eT-hLX"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="vpy-8c-8Br">
                             <connections>
                                 <action selector="refreshBtnPressed:" destination="BYZ-38-t0r" id="50E-wN-ban"/>
@@ -197,22 +202,31 @@
         <!--Search-->
         <scene sceneID="xrv-AF-lSa">
             <objects>
-                <viewController id="ida-Iz-5rx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchVC" id="ida-Iz-5rx" customClass="SearchVC" customModule="Task" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oUg-g8-J1w">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dNi-tg-0SV">
-                                <rect key="frame" x="20" y="91" width="388" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-DB-Chk" customClass="CustomTextField" customModule="Task" customModuleProvider="target">
+                                <rect key="frame" x="20" y="91" width="388" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="SGc-No-G8h"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Nv-a8-BuL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Nv-a8-BuL" firstAttribute="trailing" secondItem="2F3-DB-Chk" secondAttribute="trailing" constant="20" id="PoY-Be-y1p"/>
+                            <constraint firstItem="2F3-DB-Chk" firstAttribute="top" secondItem="3Nv-a8-BuL" secondAttribute="top" id="WAQ-fQ-Vry"/>
+                            <constraint firstItem="2F3-DB-Chk" firstAttribute="leading" secondItem="3Nv-a8-BuL" secondAttribute="leading" constant="20" id="u76-eG-hK8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="yOg-B5-Wo9"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="2F3-DB-Chk" id="BU6-sR-rs3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKR-7q-EHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

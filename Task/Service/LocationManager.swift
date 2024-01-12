@@ -57,19 +57,19 @@ class LocationManager: NSObject{
         self.configureLocationManager()
     }
     
-    func reverseGeocodeCoordinates(latitude: Double,longitude: Double,onCompletion:@escaping(CLPlacemark?,Error?)->(Void)){
-        print("CURRENT LOCALE \(Locale.current)")
-        geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude),preferredLocale: Locale.init(identifier: String(Constants.CURRENT_DEVICE_LANGUAGE_ID))) { placemarks , error  in
-            if let error{
-                print(error)
-                onCompletion(nil,error)
-            }
-            if let placemark = placemarks?.first{
-                print(placemark)
-                onCompletion(placemark,error)
-            }
-        }
-    }
+//    func reverseGeocodeCoordinates(latitude: Double,longitude: Double,onCompletion:@escaping(CLPlacemark?,Error?)->(Void)){
+//        print("CURRENT LOCALE \(Locale.current)")
+//        geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude),preferredLocale: Locale.init(identifier: String(Constants.CURRENT_DEVICE_LANGUAGE_ID))) { placemarks , error  in
+//            if let error{
+//                print(error)
+//                onCompletion(nil,error)
+//            }
+//            if let placemark = placemarks?.first{
+//                print(placemark)
+//                onCompletion(placemark,error)
+//            }
+//        }
+//    }
     
 }
 
