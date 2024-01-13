@@ -23,6 +23,13 @@
 		E4905EA12B4FECB700CA4A9B /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */; };
 		E4905EA22B4FECB700CA4A9B /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */; };
 		E4905EA42B4FFB9900CA4A9B /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */; };
+		E4E3C56D2B524D37002E5B45 /* CustomCountryCodePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3C56B2B524D37002E5B45 /* CustomCountryCodePicker.swift */; };
+		E4E3C56E2B524D37002E5B45 /* CustomCountryCodePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E3C56C2B524D37002E5B45 /* CustomCountryCodePicker.xib */; };
+		E4E3C5712B524FE1002E5B45 /* CountryCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3C56F2B524FE1002E5B45 /* CountryCodeCell.swift */; };
+		E4E3C5722B524FE1002E5B45 /* CountryCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4E3C5702B524FE1002E5B45 /* CountryCodeCell.xib */; };
+		E4E3C5742B525117002E5B45 /* countries.json in Resources */ = {isa = PBXBuildFile; fileRef = E4E3C5732B525117002E5B45 /* countries.json */; };
+		E4E3C5762B52512C002E5B45 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3C5752B52512C002E5B45 /* CountryModel.swift */; };
+		E4E3C5782B525150002E5B45 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E3C5772B525150002E5B45 /* CountryManager.swift */; };
 		E4E6CB5D2B50F9DF009DC700 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */; };
 		E4E6CB5F2B50FBC7009DC700 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +51,13 @@
 		E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
 		E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
+		E4E3C56B2B524D37002E5B45 /* CustomCountryCodePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCountryCodePicker.swift; sourceTree = "<group>"; };
+		E4E3C56C2B524D37002E5B45 /* CustomCountryCodePicker.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCountryCodePicker.xib; sourceTree = "<group>"; };
+		E4E3C56F2B524FE1002E5B45 /* CountryCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeCell.swift; sourceTree = "<group>"; };
+		E4E3C5702B524FE1002E5B45 /* CountryCodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCodeCell.xib; sourceTree = "<group>"; };
+		E4E3C5732B525117002E5B45 /* countries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countries.json; sourceTree = "<group>"; };
+		E4E3C5752B52512C002E5B45 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		E4E3C5772B525150002E5B45 /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,8 +111,11 @@
 		E416E92B2B4F77E7008429D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E4E3C5732B525117002E5B45 /* countries.json */,
 				E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */,
 				E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */,
+				E4E3C5752B52512C002E5B45 /* CountryModel.swift */,
+				E4E3C5772B525150002E5B45 /* CountryManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +135,10 @@
 				E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */,
 				E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */,
 				E4E6CB5C2B50F9DF009DC700 /* CustomTextField.swift */,
+				E4E3C56B2B524D37002E5B45 /* CustomCountryCodePicker.swift */,
+				E4E3C56C2B524D37002E5B45 /* CustomCountryCodePicker.xib */,
+				E4E3C56F2B524FE1002E5B45 /* CountryCodeCell.swift */,
+				E4E3C5702B524FE1002E5B45 /* CountryCodeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,9 +227,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4E3C56E2B524D37002E5B45 /* CustomCountryCodePicker.xib in Resources */,
 				E4905EA22B4FECB700CA4A9B /* ForecastCell.xib in Resources */,
 				E416E9242B4F7768008429D5 /* LaunchScreen.storyboard in Resources */,
+				E4E3C5722B524FE1002E5B45 /* CountryCodeCell.xib in Resources */,
 				E416E9212B4F7768008429D5 /* Assets.xcassets in Resources */,
+				E4E3C5742B525117002E5B45 /* countries.json in Resources */,
 				E416E91F2B4F7767008429D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,13 +249,17 @@
 				E4E6CB5D2B50F9DF009DC700 /* CustomTextField.swift in Sources */,
 				E416E9332B4FA31D008429D5 /* Constants.swift in Sources */,
 				E416E9302B4F7C31008429D5 /* LocationManager.swift in Sources */,
+				E4E3C5712B524FE1002E5B45 /* CountryCodeCell.swift in Sources */,
 				E416E91C2B4F7767008429D5 /* CurrentLocationWeatherVC.swift in Sources */,
 				E4905EA12B4FECB700CA4A9B /* ForecastCell.swift in Sources */,
+				E4E3C56D2B524D37002E5B45 /* CustomCountryCodePicker.swift in Sources */,
 				E416E9352B4FA40B008429D5 /* HTTPModel.swift in Sources */,
 				E416E9182B4F7767008429D5 /* AppDelegate.swift in Sources */,
 				E416E91A2B4F7767008429D5 /* SceneDelegate.swift in Sources */,
 				E4905EA42B4FFB9900CA4A9B /* ForecastModel.swift in Sources */,
 				E416E9382B4FA429008429D5 /* NetworkService.swift in Sources */,
+				E4E3C5782B525150002E5B45 /* CountryManager.swift in Sources */,
+				E4E3C5762B52512C002E5B45 /* CountryModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
