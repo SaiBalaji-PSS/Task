@@ -14,13 +14,14 @@ class ForecastCell: UICollectionViewCell {
     @IBOutlet weak var weatherIconLbl: UIImageView!
     @IBOutlet weak var weatherDescriptionLbl: UILabel!
     @IBOutlet weak var tempLbl: UILabel!
+    @IBOutlet weak var dateLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    func updateCell(weatherIcon: String?,temp: Double?,weatherDescription: String?){
+    func updateCell(weatherIcon: String?,temp: Double?,weatherDescription: String?,date: String?){
         self.layer.cornerRadius = 4
         self.layer.borderColor = UIColor.systemGray.cgColor
         self.layer.borderWidth = 1
@@ -32,6 +33,11 @@ class ForecastCell: UICollectionViewCell {
         }
         if let weatherDescription{
             self.weatherDescriptionLbl.text = weatherDescription
+        }
+        if let date{            if let formattedDate = DateFormatter.getFormatterForecastDate(dateString: date){
+                self.dateLbl.text = formattedDate
+            }
+            
         }
     }
 }

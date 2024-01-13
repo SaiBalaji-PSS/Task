@@ -20,6 +20,8 @@
 		E416E93C2B4FA6C8008429D5 /* CurrentWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */; };
 		E416E93F2B4FBD07008429D5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E416E93E2B4FBD07008429D5 /* SDWebImage */; };
 		E416E9412B4FBD07008429D5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E416E9402B4FBD07008429D5 /* SDWebImageMapKit */; };
+		E432493C2B527C8100DE14C2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432493B2B527C8100DE14C2 /* BaseViewController.swift */; };
+		E432493E2B528E7800DE14C2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E432493D2B528E7800DE14C2 /* Extensions.swift */; };
 		E4905EA12B4FECB700CA4A9B /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */; };
 		E4905EA22B4FECB700CA4A9B /* ForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */; };
 		E4905EA42B4FFB9900CA4A9B /* ForecastModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */; };
@@ -48,6 +50,8 @@
 		E416E9342B4FA40B008429D5 /* HTTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPModel.swift; sourceTree = "<group>"; };
 		E416E9372B4FA429008429D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E416E93B2B4FA6C8008429D5 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
+		E432493B2B527C8100DE14C2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E432493D2B528E7800DE14C2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E4905E9F2B4FECB700CA4A9B /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		E4905EA02B4FECB700CA4A9B /* ForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastCell.xib; sourceTree = "<group>"; };
 		E4905EA32B4FFB9900CA4A9B /* ForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastModel.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			children = (
 				E416E91B2B4F7767008429D5 /* CurrentLocationWeatherVC.swift */,
 				E4E6CB5E2B50FBC7009DC700 /* SearchVC.swift */,
+				E432493B2B527C8100DE14C2 /* BaseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				E416E9322B4FA31D008429D5 /* Constants.swift */,
 				E416E9342B4FA40B008429D5 /* HTTPModel.swift */,
 				E416E9372B4FA429008429D5 /* NetworkService.swift */,
+				E432493D2B528E7800DE14C2 /* Extensions.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -245,12 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E6CB5F2B50FBC7009DC700 /* SearchVC.swift in Sources */,
+				E432493E2B528E7800DE14C2 /* Extensions.swift in Sources */,
 				E416E93C2B4FA6C8008429D5 /* CurrentWeatherModel.swift in Sources */,
 				E4E6CB5D2B50F9DF009DC700 /* CustomTextField.swift in Sources */,
 				E416E9332B4FA31D008429D5 /* Constants.swift in Sources */,
 				E416E9302B4F7C31008429D5 /* LocationManager.swift in Sources */,
 				E4E3C5712B524FE1002E5B45 /* CountryCodeCell.swift in Sources */,
 				E416E91C2B4F7767008429D5 /* CurrentLocationWeatherVC.swift in Sources */,
+				E432493C2B527C8100DE14C2 /* BaseViewController.swift in Sources */,
 				E4905EA12B4FECB700CA4A9B /* ForecastCell.swift in Sources */,
 				E4E3C56D2B524D37002E5B45 /* CustomCountryCodePicker.swift in Sources */,
 				E416E9352B4FA40B008429D5 /* HTTPModel.swift in Sources */,

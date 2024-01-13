@@ -16,7 +16,7 @@ class NetworkService{
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             let (data,response) = try await session.data(for: request)
-            guard let urlResponse = response as? HTTPURLResponse , (200...299).contains(urlResponse.statusCode) else{return .failure(HTTPError.failedResponse)}
+           // guard let urlResponse = response as? HTTPURLResponse , (200...299).contains(urlResponse.statusCode) else{return .failure(HTTPError.failedResponse)}
             let decodedData = try JSONDecoder().decode(T.self, from: data)
             return .success(decodedData)
         }

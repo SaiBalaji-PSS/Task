@@ -60,10 +60,10 @@
                                                 </subviews>
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dly-fd-AuV">
-                                                <rect key="frame" x="8" y="322" width="412" height="200"/>
+                                                <rect key="frame" x="8" y="322" width="412" height="250"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="tZ0-Yc-rd0"/>
+                                                    <constraint firstAttribute="height" constant="250" id="tZ0-Yc-rd0"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jo2-1E-WAD">
                                                     <size key="itemSize" width="128" height="128"/>
@@ -73,7 +73,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Phm-tN-20f">
-                                                        <rect key="frame" x="0.0" y="36" width="128" height="128"/>
+                                                        <rect key="frame" x="0.0" y="61" width="128" height="128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xnH-bb-Gub">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -83,7 +83,7 @@
                                                 </cells>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1rl-Ee-Rof">
-                                                <rect key="frame" x="46.666666666666657" y="530" width="335" height="80"/>
+                                                <rect key="frame" x="46.666666666666657" y="580" width="335" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJI-lL-pII">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="36"/>
@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="pPt-Ga-EXH">
-                                <rect key="frame" x="20" y="109" width="388" height="295"/>
+                                <rect key="frame" x="20" y="109" width="388" height="175"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-DB-Chk" customClass="CustomTextField" customModule="Task" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="55"/>
@@ -217,15 +217,8 @@
                                             <constraint firstAttribute="height" constant="55" id="K0c-rb-yyr"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zud-7T-kc1" customClass="CustomTextField" customModule="Task" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="120" width="388" height="55"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="xur-He-IJ3"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSS-LH-vPw" customClass="CustomTextField" customModule="Task" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="240" width="388" height="55"/>
+                                        <rect key="frame" x="0.0" y="120" width="388" height="55"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="nXe-Vw-R66"/>
@@ -233,20 +226,34 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GT3-f6-FUK">
+                                <rect key="frame" x="20" y="846" width="388" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="gyY-L7-ZGc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Get Weather"/>
+                                <connections>
+                                    <action selector="getWeatherBtnPressed:" destination="ida-Iz-5rx" eventType="touchUpInside" id="ZYa-Rk-5rw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3Nv-a8-BuL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="GT3-f6-FUK" firstAttribute="bottom" secondItem="3Nv-a8-BuL" secondAttribute="bottom" id="3TT-AT-ZnA"/>
                             <constraint firstItem="pPt-Ga-EXH" firstAttribute="leading" secondItem="3Nv-a8-BuL" secondAttribute="leading" constant="20" id="RAo-Gw-00o"/>
+                            <constraint firstItem="GT3-f6-FUK" firstAttribute="leading" secondItem="3Nv-a8-BuL" secondAttribute="leading" constant="20" id="eqZ-L3-H8d"/>
                             <constraint firstItem="pPt-Ga-EXH" firstAttribute="top" secondItem="3Nv-a8-BuL" secondAttribute="top" constant="18" id="jGA-LQ-4yb"/>
                             <constraint firstItem="3Nv-a8-BuL" firstAttribute="trailing" secondItem="pPt-Ga-EXH" secondAttribute="trailing" constant="20" id="jge-p5-9wM"/>
+                            <constraint firstItem="3Nv-a8-BuL" firstAttribute="trailing" secondItem="GT3-f6-FUK" secondAttribute="trailing" constant="20" id="uWP-V2-sXM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="yOg-B5-Wo9"/>
                     <connections>
                         <outlet property="countryCodeTextField" destination="zSS-LH-vPw" id="coh-a9-D9X"/>
+                        <outlet property="getWeatherBtn" destination="GT3-f6-FUK" id="mHL-hK-SS2"/>
                         <outlet property="searchTextField" destination="2F3-DB-Chk" id="BU6-sR-rs3"/>
-                        <outlet property="statecodeTextField" destination="zud-7T-kc1" id="8Z9-lL-c27"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKR-7q-EHo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

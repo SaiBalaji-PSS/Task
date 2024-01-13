@@ -32,9 +32,11 @@ class CustomTextField: UIView {
         configureUI()
     }
     
+
+    
     func configureUI(){
         self.layer.cornerRadius = 4
-        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor(named: "CustomBorderColor")?.cgColor
         self.layer.borderWidth = 1
         self.addSubview(leftIcon)
         leftIcon.image = UIImage(systemName: "magnifyingglass")

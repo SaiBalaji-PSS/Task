@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import SDWebImage
 
-class CurrentLocationWeatherVC: UIViewController {
+class CurrentLocationWeatherVC: BaseViewController {
 
     //MARK: - PROPERTIES
     private var locationManager = LocationManager()
@@ -77,7 +77,14 @@ class CurrentLocationWeatherVC: UIViewController {
             switch result{
                 case .success(let response):
                     print(response)
-                    print(Constants.BASE_URL + "forecast?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY)
+                    if let messageCode = response.messageString{
+                    if messageCode != "0"{
+                        self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "")
+                        return
+                    }
+                    }
+                  //  print(Constants.BASE_URL + "forecast?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY)
+                    
                     if let city = response.city?.name{
                         self.currentLocationLabel.text = city
                     }
@@ -212,11 +219,11 @@ extension CurrentLocationWeatherVC: UICollectionViewDelegate, UICollectionViewDa
         return self.fiveDaysForecastData.count
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 150)
+        return CGSize(width: 120, height: 180)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ForecastCell", for: indexPath) as? ForecastCell{
-            cell.updateCell(weatherIcon: self.fiveDaysForecastData[indexPath.item].weather?.first?.icon, temp: self.fiveDaysForecastData[indexPath.item].main?.temp, weatherDescription: self.fiveDaysForecastData[indexPath.item].weather?.first?.main)
+            cell.updateCell(weatherIcon: self.fiveDaysForecastData[indexPath.item].weather?.first?.icon, temp: self.fiveDaysForecastData[indexPath.item].main?.temp, weatherDescription: self.fiveDaysForecastData[indexPath.item].weather?.first?.main,date: self.fiveDaysForecastData[indexPath.item].dtTxt)
             return cell
         }
         return UICollectionViewCell()
