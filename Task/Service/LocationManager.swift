@@ -17,9 +17,9 @@ protocol LocationManagerDelegate: AnyObject{
 }
 
 class LocationManager: NSObject{
+    
     static var shared = LocationManager()
     weak var delegate: LocationManagerDelegate?
-    
     lazy var geocoder = CLGeocoder()
     private lazy var locationManager = {
         let manager = CLLocationManager()
@@ -79,7 +79,7 @@ extension LocationManager: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first{
             let geofenceRegionCenter = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            let geofenceRegion = CLCircularRegion(center: geofenceRegionCenter, radius: 100, identifier: "ID")
+            let geofenceRegion = CLCircularRegion(center: geofenceRegionCenter, radius: Constants.GEOFENCING_RADIUS, identifier: Constants.GEOFENCE_REGION_ID)
             geofenceRegion.notifyOnExit = true
             locationManager.startMonitoring(for: geofenceRegion)
             delegate?.didUpdateLocation(location: location)

@@ -208,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="pPt-Ga-EXH">
-                                <rect key="frame" x="20" y="109" width="388" height="175"/>
+                                <rect key="frame" x="20" y="65" width="388" height="175"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2F3-DB-Chk" customClass="CustomTextField" customModule="Task" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="55"/>
@@ -278,25 +278,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLi-fA-lRV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1068" y="-382"/>
-        </scene>
-        <!--Search-->
-        <scene sceneID="imi-2E-8qp">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aPN-2I-oRO" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" selectedImage="magnifyingglass" id="AN9-QS-W7r"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hlL-uH-lA1">
-                        <rect key="frame" x="0.0" y="47" width="428" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ida-Iz-5rx" kind="relationship" relationship="rootViewController" id="fgz-Qy-Mf2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vsx-H1-Guw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1068" y="306"/>
         </scene>
     </scenes>
     <resources>

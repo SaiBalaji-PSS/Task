@@ -83,7 +83,7 @@ extension CurrentLocationWeatherVC{
                     print(response)
                     if let messageCode = response.messageString{
                     if messageCode != "0"{
-                        self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "")
+                        self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
                         return
                     }
                     }
@@ -100,7 +100,7 @@ extension CurrentLocationWeatherVC{
                     break
                 case .failure(let error):
                     print(error)
-                    self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                     break
             }
         }
@@ -139,7 +139,7 @@ extension CurrentLocationWeatherVC{
                     break
                 case .failure(let error):
                     print(error)
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                     break
             }
         }
@@ -151,7 +151,7 @@ extension CurrentLocationWeatherVC{
         self.fiveDaysForecastData.removeAll()
         var currentIndex = 0
         while(currentIndex != data.count){
-            print(data[currentIndex].dtTxt)
+           
             self.fiveDaysForecastData.append(data[currentIndex])
             currentIndex = currentIndex + 8
         }
@@ -176,11 +176,19 @@ extension  CurrentLocationWeatherVC: LocationManagerDelegate{
     func didFailToUpdateLocation(error: Error?, message: String?) {
         if let message{
             print(message)
-            self.showAlert(title: "Info", message: message)
+            if let avc = self.showAlert(title: "Info", message: message, isAction: true){
+                avc.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
+                    if let appSettingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(appSettingsURL, options: [:], completionHandler: nil)
+                    }
+                }))
+                self.present(avc, animated: true)
+            }
+           
         }
         if let error{
             print(error)
-            self.showAlert(title: "Error", message: error.localizedDescription)
+            self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
         }
     }
 }

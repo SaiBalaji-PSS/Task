@@ -109,13 +109,13 @@ extension SearchVC{
       
             Task{
                 let result = await NetworkService().sendGetRequest(url: Constants.BASE_URL + Constants.FORE_CAST_QUERY + "q=\(cityName ?? ""),\(self.selectedCountryCode ?? "")&cnt=40" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY, type: ForecastModel.ForecastModelResponse.self)
-                var i = 0
+               
                 switch result{
                     case .success(let response):
                         print(response)
                     if let messageCode = response.messageString{
                         if messageCode != "0"{
-                            self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "")
+                            self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
                             return
                         }
                     }
@@ -124,7 +124,7 @@ extension SearchVC{
                         break
                     case .failure(let error):
                         print(error)
-                     self.showAlert(title: "Error", message: error.localizedDescription)
+                    self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                         break
                         
                 }

@@ -15,10 +15,15 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func showAlert(title: String?,message: String?){
-        var alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    func showAlert(title: String?,message: String?,isAction: Bool) -> UIAlertController?{
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+
+        if isAction{
+            return alertVC
+        }
         alertVC.addAction(UIAlertAction(title: "Ok", style: .default))
         self.present(alertVC, animated: true)
+        return nil
     }
 
     /*
