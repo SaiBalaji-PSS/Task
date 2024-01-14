@@ -31,10 +31,10 @@ class LocationManager: NSObject{
         let status = locationManager.authorizationStatus
         switch status{
         case .authorizedAlways:
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
             break
         case .authorizedWhenInUse:
-            locationManager.requestLocation()
+            locationManager.startUpdatingLocation()
             break
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
@@ -57,29 +57,31 @@ class LocationManager: NSObject{
         self.configureLocationManager()
     }
     
-//    func reverseGeocodeCoordinates(latitude: Double,longitude: Double,onCompletion:@escaping(CLPlacemark?,Error?)->(Void)){
-//        print("CURRENT LOCALE \(Locale.current)")
-//        geocoder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude),preferredLocale: Locale.init(identifier: String(Constants.CURRENT_DEVICE_LANGUAGE_ID))) { placemarks , error  in
-//            if let error{
-//                print(error)
-//                onCompletion(nil,error)
-//            }
-//            if let placemark = placemarks?.first{
-//                print(placemark)
-//                onCompletion(placemark,error)
-//            }
-//        }
-//    }
     
 }
 
 
+
+//MARK: - CLOCATION MANAGER DELEGATE FOR GETTING CURRENT USER LOCATION AND PERFORMING GEOFENCING WHEN USER EXITS THE REGION
 extension LocationManager: CLLocationManagerDelegate{
+    
+    //If user exits the region then automatically fetch the latest current user location
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        
+        self.configureLocationManager()
+    }
+    
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         self.configureLocationManager()
     }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first{
+            let geofenceRegionCenter = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            let geofenceRegion = CLCircularRegion(center: geofenceRegionCenter, radius: 100, identifier: "ID")
+            geofenceRegion.notifyOnExit = true
+            locationManager.startMonitoring(for: geofenceRegion)
             delegate?.didUpdateLocation(location: location)
             manager.stopUpdatingLocation()
         }
