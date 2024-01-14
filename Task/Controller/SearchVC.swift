@@ -7,22 +7,24 @@
 
 import UIKit
 
+
 protocol ForecastSearchDelegate: AnyObject{
     func didSearchComplete(response: ForecastModel.ForecastModelResponse)
 }
 class SearchVC: BaseViewController {
 
-    @IBOutlet weak var searchTextField: CustomTextField!
-  
-    @IBOutlet weak var countryCodeTextField: CustomTextField!
+    //MARK: - PROPERTIES
     private var selectedCountryCode: String?
-    
-    @IBOutlet weak var getWeatherBtn: UIButton!
     weak var delegate: ForecastSearchDelegate?
     
+    //MARK: - IBOUTLETS
+    @IBOutlet weak var searchTextField: CustomTextField!
+    @IBOutlet weak var countryCodeTextField: CustomTextField!
+    @IBOutlet weak var getWeatherBtn: UIButton!
+   
+    //MARK: - LIFE CYCLE METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
        configureUI()
         
@@ -30,45 +32,13 @@ class SearchVC: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
     }
     
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-       if #available(iOS 13.0, *) {
-           if previousTraitCollection?.userInterfaceStyle == .dark{
-               print("DARK")
-             
-               self.countryCodeTextField.layer.borderColor = UIColor.darkGray.cgColor
-               self.countryCodeTextField.layer.borderWidth = 1
-               self.searchTextField.layer.borderColor = UIColor.darkGray.cgColor
-               self.searchTextField.layer.borderWidth = 1
-               self.getWeatherBtn.layer.borderColor = UIColor.darkGray.cgColor
-               self.getWeatherBtn.layer.borderWidth = 1
-               
-           }
-           else{
-               print("LIGHT")
-               self.countryCodeTextField.layer.borderColor = UIColor.white.cgColor
-               self.countryCodeTextField.layer.borderWidth = 1
-               self.searchTextField.layer.borderColor = UIColor.white.cgColor
-               self.searchTextField.layer.borderWidth = 1
-               self.getWeatherBtn.layer.borderColor = UIColor.white.cgColor
-               self.getWeatherBtn.layer.borderWidth = 1
-           }
-         
-       }
-    }
     
     
   
     
-    
-    
-    
-    
-    
-    
+    //MARK: - HELPERS
     func configureUI(){
         searchTextField.textField.placeholder = "City Name"
         searchTextField.textField.layer.borderColor = UIColor(named: "CustomBorderColor")?.cgColor
@@ -86,6 +56,33 @@ class SearchVC: BaseViewController {
         getWeatherBtn.layer.borderWidth = 1
     }
     
+    //Change TextField border color based on current device theme
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+       if #available(iOS 13.0, *) {
+           if previousTraitCollection?.userInterfaceStyle == .dark{
+    
+             
+               self.countryCodeTextField.layer.borderColor = UIColor.darkGray.cgColor
+               self.countryCodeTextField.layer.borderWidth = 1
+               self.searchTextField.layer.borderColor = UIColor.darkGray.cgColor
+               self.searchTextField.layer.borderWidth = 1
+               self.getWeatherBtn.layer.borderColor = UIColor.darkGray.cgColor
+               self.getWeatherBtn.layer.borderWidth = 1
+               
+           }
+           else{
+       
+               self.countryCodeTextField.layer.borderColor = UIColor.white.cgColor
+               self.countryCodeTextField.layer.borderWidth = 1
+               self.searchTextField.layer.borderColor = UIColor.white.cgColor
+               self.searchTextField.layer.borderWidth = 1
+               self.getWeatherBtn.layer.borderColor = UIColor.white.cgColor
+               self.getWeatherBtn.layer.borderWidth = 1
+           }
+         
+       }
+    }
+    
     
     
     
@@ -97,25 +94,17 @@ class SearchVC: BaseViewController {
         countryCodePickerView.show()
     }
     
-    
+    //MARK: - IBACTION
     @IBAction func getWeatherBtnPressed(_ sender: Any) {
-      
-        
             self.getWeatherForecastData(cityName: searchTextField.textField.text,countryCode: countryCodeTextField.textField.text)
-        
-   
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+}
+
+
+
+//MARK: - API CALLS
+extension SearchVC{
     func getWeatherForecastData(cityName: String?,countryCode: String?){
       
             Task{
@@ -144,21 +133,20 @@ class SearchVC: BaseViewController {
         
         
     }
-
 }
 
 
+//MARK: - UITEXTFIELD DELEGATE TO END EDITING
 extension SearchVC: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
       
     }
-    
 }
 
 
-
+//MARK: - CUSTOM COUNTRY PICKER DELGATE METHODS
 extension SearchVC: CustomCountryPickerDelegate{
     func didPickCountry(name: String?, isoCode: String?) {
         if let isoCode, let name{

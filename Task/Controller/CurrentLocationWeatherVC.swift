@@ -14,19 +14,17 @@ class CurrentLocationWeatherVC: BaseViewController {
     //MARK: - PROPERTIES
     private var locationManager = LocationManager()
     private var fiveDaysForecastData = [ForecastModel.List]()
+   
     
+    //MARK: - IBOUTLETS
     @IBOutlet weak var currentTemperatureLable: UILabel!
     @IBOutlet weak var currentWeatherLabel: UILabel!
     @IBOutlet weak var highLowTemperatureLabel: UILabel!
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
- 
     @IBOutlet weak var currentLocationLabel: UILabel!
     @IBOutlet weak var weatherDescriptionLabel: UILabel!
-    
     @IBOutlet weak var weatherIconImageView: UIImageView!
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     
@@ -39,10 +37,10 @@ class CurrentLocationWeatherVC: BaseViewController {
         collectionView.register(UINib(nibName: "ForecastCell", bundle: nil), forCellWithReuseIdentifier: "ForecastCell")
         collectionView.delegate = self
         collectionView.dataSource = self
-
     }
     
     
+    //MARK: - IBACTIONS
     @IBAction func searchBtnPressed(_ sender: Any) {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchVC") as? SearchVC{
             vc.delegate = self
@@ -69,8 +67,14 @@ class CurrentLocationWeatherVC: BaseViewController {
         locationManager.delegate = self
         navigationItem.title = "Current Weather"
     }
-    
-    
+
+}
+
+
+
+
+//MARK: - API CALLS
+extension CurrentLocationWeatherVC{
     func getFiveDaysForecast(latitude: String,longitude: String){
         Task{
             let result = await NetworkService().sendGetRequest(url: Constants.BASE_URL + "forecast?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY, type: ForecastModel.ForecastModelResponse.self)
@@ -96,28 +100,11 @@ class CurrentLocationWeatherVC: BaseViewController {
                     break
                 case .failure(let error):
                     print(error)
+                    self.showAlert(title: "Error", message: error.localizedDescription)
                     break
             }
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func getCurrentWeather(latitude: String,longitude: String){
         Task{
             let result  = await NetworkService().sendGetRequest(url: Constants.BASE_URL + "weather?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY , type: CurrentWeatherModel.self)
@@ -152,7 +139,7 @@ class CurrentLocationWeatherVC: BaseViewController {
                     break
                 case .failure(let error):
                     print(error)
-                    self.showMessage(title: "Error", message: error.localizedDescription)
+                self.showAlert(title: "Error", message: error.localizedDescription)
                     break
             }
         }
@@ -171,20 +158,6 @@ class CurrentLocationWeatherVC: BaseViewController {
         self.collectionView.reloadData()
     }
     
-    
-   
-    
-    
-    
-    
-    
-    
-    func showMessage(title:String?,message: String?){
-        let alertVC = UIAlertController(title: title ?? "", message: message ?? "", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Ok", style: .default))
-        self.present(alertVC, animated: false)
-    }
-
 }
 
 
@@ -203,17 +176,17 @@ extension  CurrentLocationWeatherVC: LocationManagerDelegate{
     func didFailToUpdateLocation(error: Error?, message: String?) {
         if let message{
             print(message)
-            self.showMessage(title: "Info", message: message)
+            self.showAlert(title: "Info", message: message)
         }
         if let error{
             print(error)
-            self.showMessage(title: "Error", message: error.localizedDescription)
+            self.showAlert(title: "Error", message: error.localizedDescription)
         }
     }
 }
 
 
-
+//MARK: - FORECAST COLLECTION VIEW DELEGATES
 extension CurrentLocationWeatherVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.fiveDaysForecastData.count
@@ -233,6 +206,9 @@ extension CurrentLocationWeatherVC: UICollectionViewDelegate, UICollectionViewDa
 
 
 
+
+//MARK: - CURRENT LOCATION DELEGATE
+
 extension CurrentLocationWeatherVC: ForecastSearchDelegate{
     func didSearchComplete(response: ForecastModel.ForecastModelResponse) {
         if let city = response.city?.name{
@@ -242,7 +218,6 @@ extension CurrentLocationWeatherVC: ForecastSearchDelegate{
             self.getOnlyFiveDaysForecast(data: data)
         }
         if let latitude = response.city?.coord?.lat, let longitude = response.city?.coord?.lon{
-            
             self.getCurrentWeather(latitude: "\(latitude)", longitude: "\(longitude)")
         }
     }
