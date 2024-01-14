@@ -50,7 +50,7 @@ class CurrentLocationWeatherVC: BaseViewController {
     
     
     
-    
+    //Refresh the current user location and fetching the current weather for that location
     @IBAction func refreshBtnPressed(_ sender: Any) {
         locationManager.configureLocationManager()
        
@@ -75,6 +75,7 @@ class CurrentLocationWeatherVC: BaseViewController {
 
 //MARK: - API CALLS
 extension CurrentLocationWeatherVC{
+    //Get weather forecast for 5 days by default API returns 8 timestamps for each day in 5 days.
     func getFiveDaysForecast(latitude: String,longitude: String){
         Task{
             let result = await NetworkService().sendGetRequest(url: Constants.BASE_URL + "forecast?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY, type: ForecastModel.ForecastModelResponse.self)
@@ -83,28 +84,28 @@ extension CurrentLocationWeatherVC{
                     print(response)
                     if let messageCode = response.messageString{
                     if messageCode != "0"{
-                        self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
+                        let _ =    self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
                         return
                     }
                     }
-                  //  print(Constants.BASE_URL + "forecast?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY)
                     
                     if let city = response.city?.name{
                         self.currentLocationLabel.text = city
                     }
                     if let data = response.list{
-                       // self.fiveDaysForecastData = data
+             
                         self.getOnlyFiveDaysForecast(data: data)
-                       // self.collectionView.reloadData()
+                      
                     }
                     break
                 case .failure(let error):
                     print(error)
-                self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
+                let _ =  self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                     break
             }
         }
     }
+    //Takes latitude and longitiude to get current weather from API
     func getCurrentWeather(latitude: String,longitude: String){
         Task{
             let result  = await NetworkService().sendGetRequest(url: Constants.BASE_URL + "weather?lat=\(latitude)&lon=\(longitude)" + Constants.API_KEY_QUERTY + "&units=metric" + Constants.LANGUADE_CODE_QUERY , type: CurrentWeatherModel.self)
@@ -139,14 +140,14 @@ extension CurrentLocationWeatherVC{
                     break
                 case .failure(let error):
                     print(error)
-                self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
+                let _ =  self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                     break
             }
         }
     }
     
  
-    
+    //API Returns only 40 time stamps for 5 days forecast with 8 time stamps each day. So take each only one time stamp from each day for 5 days 40 / 5 = 8
     func getOnlyFiveDaysForecast(data: [ForecastModel.List]){
         self.fiveDaysForecastData.removeAll()
         var currentIndex = 0
@@ -164,6 +165,7 @@ extension CurrentLocationWeatherVC{
 //MARK: - LOCATION MANAGER DELEGATE METHODS
 extension  CurrentLocationWeatherVC: LocationManagerDelegate{
     
+    //After successfully gettings the current location fetch current weather and forecast weather data.
     func didUpdateLocation(location: CLLocation) {
         print("LATITUDE \(location.coordinate.latitude)")
         print("LONGITUDE \(location.coordinate.longitude)")
@@ -173,6 +175,7 @@ extension  CurrentLocationWeatherVC: LocationManagerDelegate{
         
         
     }
+    //If failed to fetch current location then show the error alert, If user didn't give permission then navigate to privacy settings page
     func didFailToUpdateLocation(error: Error?, message: String?) {
         if let message{
             print(message)
@@ -188,7 +191,7 @@ extension  CurrentLocationWeatherVC: LocationManagerDelegate{
         }
         if let error{
             print(error)
-            self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
+            let _ = self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
         }
     }
 }

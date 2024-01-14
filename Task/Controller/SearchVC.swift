@@ -8,6 +8,8 @@
 import UIKit
 
 
+
+//DELEGATE METHOD TO SEND FORECAST API REPOSNE TO CURRENT WEATHER SCREEN
 protocol ForecastSearchDelegate: AnyObject{
     func didSearchComplete(response: ForecastModel.ForecastModelResponse)
 }
@@ -103,7 +105,7 @@ class SearchVC: BaseViewController {
 
 
 
-//MARK: - API CALLS
+//MARK: - API CALL TO GET WEATHER FORECAST DATA FOR GIVEN CITY NAME OR COUNTRY CODE
 extension SearchVC{
     func getWeatherForecastData(cityName: String?,countryCode: String?){
       
@@ -115,7 +117,7 @@ extension SearchVC{
                         print(response)
                     if let messageCode = response.messageString{
                         if messageCode != "0"{
-                            self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
+                            let _ =   self.showAlert(title: "Info", message: response.messageString?.uppercased() ?? "", isAction: false)
                             return
                         }
                     }
@@ -124,7 +126,7 @@ extension SearchVC{
                         break
                     case .failure(let error):
                         print(error)
-                    self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
+                   let _ = self.showAlert(title: "Error", message: error.localizedDescription, isAction: false)
                         break
                         
                 }
