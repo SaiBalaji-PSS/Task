@@ -33,5 +33,7 @@
 <img width="150" height = "400"  src="https://github.com/SaiBalaji-PSS/MovieApp/assets/51410810/11567ea3-27c4-4318-9e6b-79ccc88a0b9d">
 
 
-## Swift Packages 
+## Architecture and Swift Packages 
+* Uses UIKit for UI design 
+* Uses MVC architecture which works well with UIKit which improves code reusablitly.
 * [SD WebImage](https://github.com/SDWebImage/SDWebImage) to download Image from an URL
