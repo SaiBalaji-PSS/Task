@@ -4,8 +4,8 @@
 * MacOS Sonoma
 * Xcode 15.0
 
+## Build instructions
 
-## How to run
 * Open the mac terminal.
 * Clone the repo.
 ```git clone https://github.com/SaiBalaji-PSS/Task.git```
