@@ -36,10 +36,6 @@ class SearchVC: BaseViewController {
         super.viewWillAppear(animated)
     }
     
-    
-    
-  
-    
     //MARK: - HELPERS
     func configureUI(){
         searchTextField.textField.placeholder = "City Name"
@@ -90,7 +86,6 @@ class SearchVC: BaseViewController {
     
     
     @objc func tapped(_ recognizer: UITapGestureRecognizer){
-        print("TAPPED")
         let countryCodePickerView = CustomCountryCodePicker()
         countryCodePickerView.delegate = self
         countryCodePickerView.show()

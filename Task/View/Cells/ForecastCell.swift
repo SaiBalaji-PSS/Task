@@ -26,7 +26,7 @@ class ForecastCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.systemGray.cgColor
         self.layer.borderWidth = 1
         if let weatherIcon{
-            self.weatherIconLbl.sd_setImage(with: URL(string: "\(Constants.WEATHER_ICON_URL)\(weatherIcon)@2x.png"))
+            self.weatherIconLbl.sd_setImage(with: URL(string: "\(Constants.WEATHER_ICON_URL)\(weatherIcon)@2x.png"),placeholderImage: UIImage(named: "noweather"))
         }
         if let temp{
             self.tempLbl.text = "\(temp)°"

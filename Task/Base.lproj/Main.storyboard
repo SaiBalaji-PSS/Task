@@ -23,10 +23,10 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrj-lt-83K">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="752"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="F0W-Gk-LeQ">
+                                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="377" placeholderIntrinsicHeight="140" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="F0W-Gk-LeQ">
                                                 <rect key="frame" x="25.666666666666657" y="8" width="377" height="140"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yoj-ib-gqT">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noweather" translatesAutoresizingMaskIntoConstraints="NO" id="yoj-ib-gqT">
                                                         <rect key="frame" x="0.0" y="0.0" width="148" height="140"/>
                                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                                         <constraints>
@@ -38,7 +38,7 @@
                                                         <rect key="frame" x="229" y="0.0" width="148" height="140"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-uD-9Xl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="148" height="94"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="148" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="LSY-u4-Cem"/>
                                                                 </constraints>
@@ -47,10 +47,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-8t-vOC">
-                                                                <rect key="frame" x="0.0" y="104" width="148" height="36"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="36" id="91f-iF-NUP"/>
-                                                                </constraints>
+                                                                <rect key="frame" x="0.0" y="58" width="148" height="82"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -283,8 +280,8 @@
     <resources>
         <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="noweather" width="870" height="852"/>
         <image name="sun.horizon" catalog="system" width="128" height="79"/>
-        <image name="sun.max" catalog="system" width="128" height="125"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

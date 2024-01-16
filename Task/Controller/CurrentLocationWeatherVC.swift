@@ -37,6 +37,9 @@ class CurrentLocationWeatherVC: BaseViewController {
         collectionView.register(UINib(nibName: "ForecastCell", bundle: nil), forCellWithReuseIdentifier: "ForecastCell")
         collectionView.delegate = self
         collectionView.dataSource = self
+        self.weatherIconImageView.layer.borderColor = UIColor.darkGray.cgColor
+        self.weatherIconImageView.layer.borderWidth = 1
+        self.weatherIconImageView.layer.cornerRadius = 8
     }
     
     
@@ -47,20 +50,13 @@ class CurrentLocationWeatherVC: BaseViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    
-    
+
     //Refresh the current user location and fetching the current weather for that location
     @IBAction func refreshBtnPressed(_ sender: Any) {
         locationManager.configureLocationManager()
        
     }
-    
-    
-    
-    
 
-    
     //MARK: - HELPERS
     func configureLocationManager(){
         locationManager.configureLocationManager()
@@ -69,9 +65,6 @@ class CurrentLocationWeatherVC: BaseViewController {
     }
 
 }
-
-
-
 
 //MARK: - API CALLS
 extension CurrentLocationWeatherVC{
@@ -134,7 +127,7 @@ extension CurrentLocationWeatherVC{
                     self.weatherDescriptionLabel.text = weatherDescription
                 }
                 if let weatherIcon = response.weather?.first?.icon{
-                    self.weatherIconImageView.sd_setImage(with: URL(string: "\(Constants.WEATHER_ICON_URL)\(weatherIcon)@2x.png"))
+                    self.weatherIconImageView.sd_setImage(with: URL(string: "\(Constants.WEATHER_ICON_URL)\(weatherIcon)@2x.png"),placeholderImage: UIImage(named: "noweather"))
                 }
            
                     break
@@ -218,7 +211,7 @@ extension CurrentLocationWeatherVC: UICollectionViewDelegate, UICollectionViewDa
 
 
 
-//MARK: - CURRENT LOCATION DELEGATE
+//MARK: - DELEGATE FROM SEARCH VIEW CONTROLLER
 
 extension CurrentLocationWeatherVC: ForecastSearchDelegate{
     func didSearchComplete(response: ForecastModel.ForecastModelResponse) {
