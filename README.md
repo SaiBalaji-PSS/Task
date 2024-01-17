@@ -20,7 +20,7 @@
 
 
 ## Features 
-* Get latest weather data for current location and five days forecast using [Open Weather API](https://openweathermap.org/api).
+* Get latest weather data for current location and five days forecast using [Open Weather Map API](https://openweathermap.org/api).
 * Uses geofencing to detect change in user location and fetches current weather data if the user location changes.
 * Get weather info for particular city or country using  open weather search api.
 
